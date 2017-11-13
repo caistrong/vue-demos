@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./md.css">
+    </head>
+    <body>
+        <div id="editor">
+            <textarea v-bind:value="input" v-on:input="update"></textarea>
+            <div v-html="compiledMarkdown"></div>
+        </div>        
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/marked@0.3.6"></script>
+        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="./md.js"></script>
+    </body>
+</html>
