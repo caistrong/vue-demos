@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./gitcom.css">
+</head>
+<body>
+    <div id="demo">
+        <h1>Latest vue-demos commits</h1>
+        <template v-for="branch in branches">
+            <input type="radio" 
+                id="branch"
+                :value="branch"
+                v-model="currentBranch">
+            <label :for="branch">{{branch}}</label>
+        </template>
+        <p>caistrong/vue-demos@{{ currentBranch }}</p>
+        <ul>
+            <li v-for="record in commits">
+                <a :href="record.html_url">{{ record.sha.slice(0,7) }}</a>
+                -<span class="message">{{ record.commit.message }}</span><br/>
+                by <a :href="record.author.html_url">
+                    <img :src="record.author.avatar_url" :alt="record.author.login">
+                </a> at <span>{{record.commit.author.date | formatDate}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./gitcom.js"></script>
+</body>
+</html>
