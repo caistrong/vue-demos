@@ -6,6 +6,7 @@
 }
 .item {
   cursor: pointer;
+  /* 指示鼠标停止在上面的标志 */
 }
 .bold {
   font-weight: bold;
@@ -42,10 +43,10 @@ ul {
 
 <!-- the demo root element -->
 <ul id="demo">
-<item
-    class="item"
-    :model="treeData">
-</item>
+    <item
+        class="item"
+        :model="treeData">
+    </item>
 </ul>
 
 <script>
